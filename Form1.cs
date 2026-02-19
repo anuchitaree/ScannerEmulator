@@ -20,8 +20,8 @@ namespace ScannerEmulator
             {
                 _serialPort = new SerialPort
                 {
-                    PortName = "COM5",      // เปลี่ยนตามเครื่อง
-                    BaudRate = 9600,
+                    PortName = "COM8",      // เปลี่ยนตามเครื่อง
+                    BaudRate = 115200,
                     DataBits = 8,
                     Parity = Parity.None,
                     StopBits = StopBits.One,

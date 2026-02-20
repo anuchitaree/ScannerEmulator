@@ -28,69 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            txtBarcode = new TextBox();
+            components = new System.ComponentModel.Container();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            panel1 = new Panel();
+            panelMain = new Panel();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
-            // button1
+            // tableLayoutPanel1
             // 
-            button1.Location = new Point(43, 107);
-            button1.Name = "button1";
-            button1.Size = new Size(106, 44);
-            button1.TabIndex = 0;
-            button1.Text = "Open port";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(panel1, 0, 0);
+            tableLayoutPanel1.Controls.Add(panelMain, 0, 1);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 0F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new Size(740, 297);
+            tableLayoutPanel1.TabIndex = 5;
             // 
-            // button2
+            // panel1
             // 
-            button2.Location = new Point(43, 157);
-            button2.Name = "button2";
-            button2.Size = new Size(106, 44);
-            button2.TabIndex = 1;
-            button2.Text = "Close port";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(3, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(734, 1);
+            panel1.TabIndex = 0;
             // 
-            // button3
+            // panelMain
             // 
-            button3.Location = new Point(389, 50);
-            button3.Name = "button3";
-            button3.Size = new Size(98, 44);
-            button3.TabIndex = 2;
-            button3.Text = "Send";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            panelMain.Dock = DockStyle.Fill;
+            panelMain.Location = new Point(3, 3);
+            panelMain.Name = "panelMain";
+            panelMain.Size = new Size(734, 291);
+            panelMain.TabIndex = 1;
             // 
-            // txtBarcode
+            // contextMenuStrip1
             // 
-            txtBarcode.Location = new Point(43, 62);
-            txtBarcode.Name = "txtBarcode";
-            txtBarcode.Size = new Size(340, 23);
-            txtBarcode.TabIndex = 3;
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(500, 226);
-            Controls.Add(txtBarcode);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            ClientSize = new Size(740, 297);
+            Controls.Add(tableLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            MaximizeBox = false;
             Name = "Form1";
-            Text = "Form1";
+            Text = "Scanner Emulator v1.0 © 2026 Anuchit Aree. All rights reserved. Free for use. Not for resale";
+            //FormClosed += Form1_FormClosed;
+            Load += Form1_Load;
+            tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private TextBox txtBarcode;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Panel panel1;
+        private Panel panelMain;
+        private ContextMenuStrip contextMenuStrip1;
     }
 }

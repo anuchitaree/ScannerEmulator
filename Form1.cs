@@ -5,60 +5,36 @@ namespace ScannerEmulator
     public partial class Form1 : Form
     {
 
-        private SerialPort? _serialPort;
+        private SetupUC _setupUC;
+
 
 
         public Form1()
         {
             InitializeComponent();
-            //_serialPort = new SerialPort();
+            _setupUC = new SetupUC();
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            try
-            {
-                _serialPort = new SerialPort
-                {
-                    PortName = "COM8",      // เปลี่ยนตามเครื่อง
-                    BaudRate = 115200,
-                    DataBits = 8,
-                    Parity = Parity.None,
-                    StopBits = StopBits.One,
-                    Handshake = Handshake.None
-                };
-
-                _serialPort.Open();
-                //MessageBox.Show("Port Opened");
-                button1.Enabled = false;
-                button1.BackColor = Color.GreenYellow;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            LoadSetupUC();
+            string Header = "Scanner Emulator v1.0 © 2026 Anuchit Aree. All rights reserved. Free for use. Not for resale.";
+            var _form1 = new Form1();
+            _form1.Text = Header;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void LoadSetupUC()
         {
-            if (_serialPort?.IsOpen == true)
+            _setupUC = new SetupUC
             {
-                _serialPort.Close();
-                button1.Enabled = true;
-                button1.BackColor = SystemColors.Control;
-            }
+                Dock = DockStyle.Fill
+            };
+
+            panelMain.Controls.Clear();
+            panelMain.Controls.Add(_setupUC);
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (_serialPort?.IsOpen == true)
-            {
-                string barcode = txtBarcode.Text;
-
-                // ปกติเครื่องยิงจะส่ง CR LF ต่อท้าย
-                _serialPort.Write(barcode + "\r\n");
-            }
-        }
+       
     }
 }
